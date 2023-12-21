@@ -1,0 +1,87 @@
+Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Color(0xffF0EDD4),
+      body: Center(
+          child: Column(
+        children: [
+          MaterialButton(
+              color: Colors.blueAccent,
+              child: const Text(
+                "Pick Image from Gallery",
+                style: TextStyle(color: Colors.white, fontSize: 16),
+              ),
+              onPressed: () {}),
+          MaterialButton(
+              color: Colors.orangeAccent,
+              child: const Text(
+                "Pick Image from Camera",
+                style: TextStyle(color: Colors.white, fontSize: 16),
+              ),
+              onPressed: () {})
+        ],
+      )),
+    );
+  }
+
+
+def Input():
+   x = int(input("Enter the Board width: "))
+   y = int(input("Enter the Board height: "))
+   matrix = [[[z] for z in range(y)] for i in range(x)]
+   print(matrix)
+   return matrix
+
+
+
+def create_board(width, height):
+    board = [['-' for _ in range(width)] for _ in range(height)]
+    return board
+
+def TextSambutan():
+    print("~~ Selamat datang di permainan board game Pemrograman Fungsional !!")
+    print("------------------------------------------------------------")
+    print("Anda (A) dapat berjalan secara Horizontal dan Vertikal untuk menuju target (O)")
+    print("Gunakan keyboard ASDW untuk bergerak")
+    print("------------------------------------------------------------")
+    print("~~ Selamat Bermain ~~")
+
+def print_board(board):
+    for row in board:
+        print(' '.join(row))
+
+def main():
+    TextSambutan()
+    
+    width = int(input("Enter the Board width: "))
+    height = int(input("Enter the Board height: ")
+    
+    game = create_board(width, height)
+    
+    # Let's add the player 'A' and the goal 'O' to the board
+    player_x, player_y = 0, 0
+    goal_x, goal_y = width - 1, height - 1
+    game[player_y][player_x] = 'A'
+    game[goal_y][goal_x] = 'O'
+    
+    print_board(game)
+
+    # Game loop for player movement
+    while True:
+        move = input("Move the player (ASDW or Q to quit): ").upper()
+        if move == 'Q':
+            break
+        if move in ('A', 'S', 'D', 'W'):
+            game[player_y][player_x] = '-'  # Clear the current player position
+            if move == 'A' and player_x > 0:
+                player_x -= 1
+            elif move == 'S' and player_y < height - 1:
+                player_y += 1
+            elif move == 'D' and player_x < width - 1:
+                player_x += 1
+            elif move == 'W' and player_y > 0:
+                player_y -= 1
+            game[player_y][player_x] = 'A'  # Update the player's new position
+            print_board(game)
+
+if __name__ == "__main":
+    main()
