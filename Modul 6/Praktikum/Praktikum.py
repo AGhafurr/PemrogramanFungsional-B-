@@ -34,7 +34,6 @@ y_center = (final_img.height - overlay_image.height) // 2
 
 final_img.paste(overlay_image, (x_center, y_center))
 
-
 # TODO 4 : Tambahkan teks "Informatika JOSSS!" pada gambar overlay dengan font Arial dan ukuran 24
 draw = ImageDraw.Draw(final_img)
 font_path = 'D:\\SEMESTER 5\\PEMROGMAN FUNGSIONAL B\\Modul\\Modul 6\\Latihan\\ariblk.ttf'
@@ -42,9 +41,9 @@ font_size = 24
 font = ImageFont.truetype(font_path, font_size)
 text = "Informatika JOSSS!"
 text_width = draw.textlength(text, font)
-text_x = (final_img.width - text_width) // 2
-text_y = final_img.height -40
-draw.text((text_x, text_y), text, 225, font)
+text_x = 30
+text_y = 30
+draw.text((text_x, text_y), text, 255, font)
 
 # TODO 5 : Simpan gambar hasil edit dengan nama "tugas_praktikum_enam.jpg".
 final_img.save('D:\\SEMESTER 5\\PEMROGMAN FUNGSIONAL B\\Modul\\Modul 6\\Praktikum\\tugas_praktikum_enam.png')
